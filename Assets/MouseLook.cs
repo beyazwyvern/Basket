@@ -8,11 +8,12 @@ public class MouseLook : MonoBehaviour
 
     private float x = 0.0f;
     private float y = 0.0f;
-    bool closed = true;
+    public bool closed = true;
+    bool birSeferlik = true;
 
     private void Start()
     {
-        transform.eulerAngles = new Vector3(0, 0, 0.0f);
+        transform.eulerAngles = new Vector3(0, 0, 0);
         Invoke(nameof(OpenIt), 0.5f);
     }
 
@@ -23,12 +24,17 @@ public class MouseLook : MonoBehaviour
 
     void Update()
     {
-        if (!closed)
+        if (closed == false)
         {
             x += turnSpeed * Input.GetAxis("Mouse X");
             y -= turnSpeed * Input.GetAxis("Mouse Y");
 
             transform.eulerAngles = new Vector3(y, x, 0.0f);
         }
+        //if (Input.GetMouseButtonDown(0) && birSeferlik == true)
+        //{
+        //    birSeferlik = false;
+        //    OpenIt();
+        //}
     }
 }
