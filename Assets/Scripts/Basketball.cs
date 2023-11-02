@@ -14,7 +14,7 @@ public class Basketball : MonoBehaviour
             basket.transform.parent = null;
             basket.GetComponent<Rigidbody>().useGravity = true;
             basket.GetComponent<Rigidbody>().isKinematic = false;
-            basket.GetComponent<Rigidbody>().AddForce(basket.transform.forward * speed);
+            basket.GetComponent<Rigidbody>().AddForce(transform.GetChild(0).transform.forward * speed);
             Invoke(nameof(NewBall), 0.5f);
         }
     }
